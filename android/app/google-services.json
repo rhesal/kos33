@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "259362017283",
+    "firebase_url": "https://koskos-an-default-rtdb.asia-southeast1.firebasedatabase.app",
+    "project_id": "koskos-an",
+    "storage_bucket": "koskos-an.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:259362017283:android:d5e3912afc34d2a4cbbe36",
+        "android_client_info": {
+          "package_name": "com.example.kos33"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "259362017283-lkgffn4utaui5p89q2nqtdu2pv3pn65b.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC1OO_RLaIRs5SioLbsYw7EINeANwkHw0c"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "259362017283-lkgffn4utaui5p89q2nqtdu2pv3pn65b.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
