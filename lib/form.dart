@@ -5,6 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/services.dart';
 import 'main.dart';
+import 'alert_dialog.dart';
 
 class FormPage extends StatefulWidget {
   //constructor have one parameter, optional paramter
@@ -34,6 +35,8 @@ class _FormPageState extends State<FormPage> {
   var noKamarController = TextEditingController();
   var hargaKamarController = TextEditingController();
   var tglKeluarController = TextEditingController();
+
+  bool tappedYes = false;
 
   //inisialize firebase instance
   FirebaseFirestore firebase = FirebaseFirestore.instance;
@@ -89,14 +92,23 @@ class _FormPageState extends State<FormPage> {
             //if have data show delete button
             widget.id != null
                 ? IconButton(
-                    onPressed: () {
-                      //method to delete data based on id
-                      users!.doc(widget.id).delete();
-
-                      //back to main page
-                      // '/' is home
-                      Navigator.of(context).pushNamedAndRemoveUntil(
-                          '/', (Route<dynamic> route) => false);
+                    onPressed: () async {
+                      final action = await AlertDialogs.yesCancelDialog(
+                          context,
+                          'Delete',
+                          'Apakah anda yakin akan menghapus data a.n. ${namaController.text} ?');
+                      if (action == DialogAction.yes) {
+                        //setState(() => tappedYes = true);
+                        //method to delete data based on id
+                        users!.doc(widget.id).delete();
+                        //back to main page
+                        // '/' is home
+                        // ignore: use_build_context_synchronously
+                        Navigator.of(context).pushNamedAndRemoveUntil(
+                            '/', (Route<dynamic> route) => false);
+                      } else {
+                        setState(() => tappedYes = false);
+                      }
                     },
                     icon: Icon(Icons.delete))
                 : SizedBox()
